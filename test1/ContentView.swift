@@ -71,7 +71,7 @@ func stack_02() -> some View {
             VStack(alignment: .leading) {
                 Text("Elon Mú")
                     .font(.headline)
-                Text("Tỉ phú Việt Nam")
+                Text("Tỉ phú hàng đầu Việt Nam")
                     .font(.subheadline)
             }
             Spacer()
