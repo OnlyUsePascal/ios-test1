@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct ContactCard: View {
+    var contact: Contact
+    
     var body: some View {
         ZStack {
             ColorConstants.rmitBlue
@@ -14,13 +16,13 @@ struct ContactCard: View {
             VStack {
                 VStack {
                     ZStack {
-                        Image("avatar-elon-musk")
+                        Image(contact.imageName)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200)
                             .clipShape(Circle())
                     }
-                    Text("Elon Ma")
+                    Text(contact.name)
                         .font(.system(size: 35, weight: .bold))
                         .foregroundStyle(Color.white)
                 }
@@ -38,12 +40,12 @@ struct ContactCard: View {
                             HStack {
                                 Image(systemName: "phone.fill")
                                     .foregroundStyle(ColorConstants.rmitRed)
-                                Text("099123124")
+                                Text(contact.phone)
                                     .foregroundStyle(.black)
                             }
                         )
                         .padding(.all)
-                    
+
                     RoundedRectangle(cornerRadius: 25)
                         .fill(.white)
                         .frame(width: 250, height: 50)
@@ -51,7 +53,7 @@ struct ContactCard: View {
                             HStack {
                                 Image(systemName: "envelope.fill")
                                     .foregroundStyle(ColorConstants.rmitRed)
-                                Text("joun@pham.com")
+                                Text(contact.email)
                                     .foregroundStyle(.black)
                                     .tint(.black)
                             }
@@ -60,10 +62,19 @@ struct ContactCard: View {
                 }
             }
         }
+        .navigationTitle(contact.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 
 }
 
 #Preview {
-    ContactCard()
+    ContactCard(
+        contact: Contact(
+            name: "joun",
+            phone: "phone",
+            email: "joun@mail.com",
+            imageName: "avatar-joun"
+        )
+    )
 }
