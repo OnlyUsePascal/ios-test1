@@ -5,6 +5,7 @@
 //  Created by Joun on 25/7/25.
 //
 import SwiftUI
+import MapKit
 
 struct Contact: Identifiable {
     var id = UUID()
@@ -16,6 +17,8 @@ struct Contact: Identifiable {
     var image: Image {
         Image(imageName)
     }
+    
+    var location: CLLocationCoordinate2D
 }
 
 var contacts: [Contact] = [
@@ -23,19 +26,22 @@ var contacts: [Contact] = [
         name: "joun",
         phone: "phone",
         email: "joun@mail.com",
-        imageName: "avatar-joun"
+        imageName: "avatar-joun",
+        location: CLLocationCoordinate2D(latitude: 10.7951119, longitude: 106.7195157)
     ),
     Contact(
         name: "elon",
         phone: "phone",
         email: "joun@mail.com",
-        imageName: "avatar-elon"
+        imageName: "avatar-elon",
+        location: CLLocationCoordinate2D(latitude: 20.9789299, longitude: 105.7822493)
     ),
     Contact(
         name: "legend",
         phone: "phone",
         email: "joun@mail.comm",
-        imageName: "avatar-elon"
+        imageName: "avatar-elon",
+        location: CLLocationCoordinate2D(latitude: 10.7951119, longitude: 106.7195157)
     ),
 ]
 

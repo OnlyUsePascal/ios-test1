@@ -1,3 +1,4 @@
+import MapKit
 //
 //  ContactCard.swift
 //  test1
@@ -8,57 +9,62 @@ import SwiftUI
 
 struct ContactCard: View {
     var contact: Contact
-    
+
     var body: some View {
         ZStack {
             ColorConstants.rmitBlue
+                .ignoresSafeArea()
 
-            VStack {
+            ScrollView {
                 VStack {
-                    ZStack {
-                        Image(contact.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 200)
-                            .clipShape(Circle())
-                    }
+                    MapView(location: contact.location)
+                        .ignoresSafeArea()
+                        .frame(height: 250)
+
+                    Image(contact.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200)
+                        .clipShape(Circle())
+                        .offset(y: -90)
+                        .padding(.bottom, -90)
                     Text(contact.name)
                         .font(.system(size: 35, weight: .bold))
                         .foregroundStyle(Color.white)
-                }
 
-                Image("rmit-logo-white")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200)
+                    Image("rmit-logo-white")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200)
 
-                VStackLayout {
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(.white)
-                        .frame(width: 250, height: 50)
-                        .overlay(
-                            HStack {
-                                Image(systemName: "phone.fill")
-                                    .foregroundStyle(ColorConstants.rmitRed)
-                                Text(contact.phone)
-                                    .foregroundStyle(.black)
-                            }
-                        )
-                        .padding(.all)
+                    VStackLayout {
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(.white)
+                            .frame(width: 350, height: 50)
+                            .overlay(
+                                HStack {
+                                    Image(systemName: "phone.fill")
+                                        .foregroundStyle(ColorConstants.rmitRed)
+                                    Text(contact.phone)
+                                        .foregroundStyle(.black)
+                                }
+                            )
+                            .padding(.all)
 
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(.white)
-                        .frame(width: 250, height: 50)
-                        .overlay(
-                            HStack {
-                                Image(systemName: "envelope.fill")
-                                    .foregroundStyle(ColorConstants.rmitRed)
-                                Text(contact.email)
-                                    .foregroundStyle(.black)
-                                    .tint(.black)
-                            }
-                        )
-                        .padding(.all)
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(.white)
+                            .frame(width: 350, height: 50)
+                            .overlay(
+                                HStack {
+                                    Image(systemName: "envelope.fill")
+                                        .foregroundStyle(ColorConstants.rmitRed)
+                                    Text(contact.email)
+                                        .foregroundStyle(.black)
+                                        .tint(.black)
+                                }
+                            )
+                            .padding(.all)
+                    }
                 }
             }
         }
@@ -74,7 +80,11 @@ struct ContactCard: View {
             name: "joun",
             phone: "phone",
             email: "joun@mail.com",
-            imageName: "avatar-joun"
+            imageName: "avatar-joun",
+            location: CLLocationCoordinate2D(
+                latitude: 10.7951119,
+                longitude: 106.7195157
+            )
         )
     )
 }

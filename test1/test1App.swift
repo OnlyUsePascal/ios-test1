@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 @main
 struct test1App: App {
@@ -13,7 +14,13 @@ struct test1App: App {
         WindowGroup {
 //            ContentView()
 //            MagicMeView()
-            ContactList()
+//            ContactList()
+            MapView(
+                location: CLLocationCoordinate2D(
+                    latitude: 10.7951119,
+                    longitude: 106.7195157
+                )
+            )
         }
     }
 }
