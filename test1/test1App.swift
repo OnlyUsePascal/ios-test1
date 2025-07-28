@@ -14,13 +14,7 @@ struct test1App: App {
         WindowGroup {
 //            ContentView()
 //            MagicMeView()
-//            ContactList()
-            MapView(
-                location: CLLocationCoordinate2D(
-                    latitude: 10.7951119,
-                    longitude: 106.7195157
-                )
-            )
+            ContactList()
         }
     }
 }

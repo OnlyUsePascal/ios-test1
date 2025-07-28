@@ -8,16 +8,6 @@
 import MapKit
 import SwiftUI
 
-//var defaultLoc = CLLocationCoordinate2D(
-//    latitude: 10.7951119,
-//    longitude: 106.7195157
-//)
-//
-//var defaultLoc2 = CLLocationCoordinate2D(
-//    latitude: 10.7951119,
-//    longitude: 106.72095157
-//)
-
 struct MapView: View {
     var location: CLLocationCoordinate2D
 
